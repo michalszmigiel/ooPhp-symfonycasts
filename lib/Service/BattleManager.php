@@ -59,11 +59,6 @@ class BattleManager
 
         return new BattleResult($usedJediPowers, $losingShip, $winningShip);
 
-//        return array(
-//            'winning_ship' => $winningShip,
-//            'losing_ship' => $losingShip,
-//            'used_jedi_powers' => $usedJediPowers,
-//        );
     }
 
     private function didJediDestroyShipUsingTheForce(Ship $ship)

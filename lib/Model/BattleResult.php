@@ -3,11 +3,11 @@
 
 class BattleResult
 {
-    private $usedJediPowers;
-    private $losingShip;
-    private $winningShip;
+    private bool $usedJediPowers;
+    private ?Ship $losingShip = null;
+    private ?Ship $winningShip = null;
 
-    public function __construct($usedJediPowers, Ship $losingShip = null, Ship $winningShip = null)
+    public function __construct($usedJediPowers, Ship $losingShip, Ship $winningShip)
     {
 
         $this->usedJediPowers = $usedJediPowers;

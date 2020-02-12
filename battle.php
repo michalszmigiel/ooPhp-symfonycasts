@@ -1,11 +1,8 @@
 <?php
 require __DIR__ . '/bootstrap.php';
 
-$shipLoader = new ShipLoader(
-    $configuration['db_dsn'],
-    $configuration['db_user'],
-    $configuration['db_pass'],
-);
+$container = new Container($configuration);
+$shipLoader = $container->getShipLoader();
 $ships = $shipLoader->getShips();
 
 $ship1Id = isset($_POST['ship1_id']) ? $_POST['ship1_id'] : null;
@@ -30,7 +27,7 @@ if ($ship1Quantity <= 0 || $ship2Quantity <= 0) {
     header('Location: /index.php?error=bad_quantities');
     die;
 }
-$battleManager = new BattleManager();
+$battleManager = $container->getBattleManager();
 $battleResult = $battleManager->battle($ship1, $ship1Quantity, $ship2, $ship2Quantity);
 ?>
 

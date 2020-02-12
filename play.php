@@ -1,5 +1,5 @@
 <?php
-require __DIR__.'/lib/Ship.php';
+require __DIR__ . '/lib/Ship.php';
 
 $myShip = new Ship();
 $myShip->name = 'Jedi Starship';
