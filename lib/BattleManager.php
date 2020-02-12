@@ -6,6 +6,10 @@ class BattleManager
     /**
      * Our complex fighting algorithm!
      *
+     * @param Ship $ship1
+     * @param $ship1Quantity
+     * @param Ship $ship2
+     * @param $ship2Quantity
      * @return BattleResult
      */
     public function battle(Ship $ship1, $ship1Quantity, Ship $ship2, $ship2Quantity)
