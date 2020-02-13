@@ -1,7 +1,7 @@
 <?php
 
 
-class RebelShip extends Ship
+class RebelShip extends AbstractShip
 {
     /**
      * @return mixed
@@ -36,6 +36,11 @@ class RebelShip extends Ship
         $nameAndSpecsToReturn .= ' (Rebel)';
 
         return $nameAndSpecsToReturn;
+    }
+
+    public function getJediFactor(): int
+    {
+        return rand(10, 30);
     }
 
 }
