@@ -3,11 +3,11 @@
 
 class ShipLoader
 {
-    private AbstractShipStorage $shipStorage;
+    private IShipStorage $shipStorage;
 
-    public function __construct(AbstractShipStorage $shipStorage)
+    public function __construct(IShipStorage $shipStorage)
     {
-        $this->$shipStorage = $shipStorage;
+        $this->shipStorage = $shipStorage;
     }
 
     /**

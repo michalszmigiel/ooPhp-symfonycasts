@@ -1,6 +1,6 @@
 <?php
 
-class JsonFileShipStorage extends AbstractShipStorage
+class JsonFileShipStorage implements IShipStorage
 {
     private $filename;
 

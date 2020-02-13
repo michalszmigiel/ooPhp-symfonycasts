@@ -6,7 +6,7 @@ class Container
     private array $configuration;
     private ?PDO $pdo = null;
     private ?ShipLoader $shipLoader = null;
-    private ?AbstractShipStorage $shipStorage = null;
+    private ?IShipStorage $shipStorage = null;
     private ?BattleManager $battleManager = null;
 
     public function __construct(array $configuration)
@@ -47,7 +47,7 @@ class Container
     }
 
     /**
-     * @return AbstractShipStorage
+     * @return IShipStorage
      */
     public function getShipStorage()
     {

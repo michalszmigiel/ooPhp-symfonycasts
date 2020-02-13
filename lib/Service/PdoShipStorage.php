@@ -1,7 +1,7 @@
 <?php
 
 
-class PdoShipStorage extends AbstractShipStorage
+class PdoShipStorage implements IShipStorage
 {
     /**
      * @var PDO
