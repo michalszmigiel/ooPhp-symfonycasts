@@ -18,6 +18,14 @@ class Ship
     }
 
     /**
+     * @return string
+     */
+    public function getType()
+    {
+        return "Empire";
+    }
+
+    /**
      * @return int
      */
     public function getId(): int
