@@ -1,10 +1,11 @@
 <?php
 
+namespace Service;
 
 class Container
 {
     private array $configuration;
-    private ?PDO $pdo = null;
+    private ?\PDO $pdo = null;
     private ?ShipLoader $shipLoader = null;
     private ?IShipStorage $shipStorage = null;
     private ?BattleManager $battleManager = null;
@@ -15,18 +16,18 @@ class Container
     }
 
     /**
-     * @return PDO
+     * @return \PDO
      */
     public function getPDO()
     {
         if($this->pdo === null)
         {
-            $this->pdo = new PDO(
+            $this->pdo = new \PDO(
                 $this->configuration['db_dsn'],
                 $this->configuration['db_user'],
                 $this->configuration['db_pass'],
             );
-            $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $this->pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
         }
 
         return $this->pdo;

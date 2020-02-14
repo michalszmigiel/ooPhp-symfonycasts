@@ -1,5 +1,7 @@
 <?php
 
+namespace Service;
+
 class JsonFileShipStorage implements IShipStorage
 {
     private $filename;

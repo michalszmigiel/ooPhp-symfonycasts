@@ -1,11 +1,18 @@
 <?php
 require __DIR__ . '/bootstrap.php';
 
+use Service\BattleManager;
+use Service\Container;
+use Model\BrokenShip;
+
 $container = new Container($configuration);
 $shipLoader = $container->getShipLoader();
 $ships = $shipLoader->getShips();
+
 $brokenShip = new BrokenShip("BROKEN SHIP OV DOOM");
 $ships[] = $brokenShip;
+
+$battleTypes = BattleManager::getAllBattleTypesWithDescription();
 
 $errorMessage = '';
 if (isset($_GET['error'])) {
@@ -118,9 +125,9 @@ if (isset($_GET['error'])) {
                         <div class="text-center">
                             <label for="battle_type">Battle Type</label>
                             <select name="battle_type" id="battle_type" class="form-control drp-dwn-width center-block">
-                                <option value="<?= BattleManager::TYPE_NORMAL; ?>">Normal</option>
-                                <option value="<?= BattleManager::TYPE_NO_JEDI; ?>">No Jedi Powers</option>
-                                <option value="<?= BattleManager::TYPE_ONLY_JEDI; ?>">Only Jedi Powers</option>
+                                <?php foreach ($battleTypes as $battleType => $typeText): ?>
+                                    <option value="<?= $battleType; ?>"><?= $typeText; ?></option>
+                                <?php endforeach; ?>
                             </select>
                         </div>
                         <br/>

@@ -1,14 +1,15 @@
 <?php
 
+namespace Service;
 
 class PdoShipStorage implements IShipStorage
 {
     /**
-     * @var PDO
+     * @var \PDO
      */
-    private PDO $pdo;
+    private \PDO $pdo;
 
-    public function __construct(PDO $pdo)
+    public function __construct(\PDO $pdo)
     {
         $this->pdo = $pdo;
     }
@@ -20,7 +21,7 @@ class PdoShipStorage implements IShipStorage
         $statement = $pdo->prepare("SELECT * FROM ship");
         $statement->execute();
 
-        return $statement->fetchAll(PDO::FETCH_ASSOC);
+        return $statement->fetchAll(\PDO::FETCH_ASSOC);
     }
 
     public function fetchSingleShipData($id)
@@ -28,7 +29,7 @@ class PdoShipStorage implements IShipStorage
         $pdo = $this->pdo;
         $statement = $pdo->prepare("SELECT * FROM ship WHERE id = :id");
         $statement->execute(array('id'=>$id));
-        $shipArray = $statement->fetch(PDO::FETCH_ASSOC);
+        $shipArray = $statement->fetch(\PDO::FETCH_ASSOC);
 
         if(!$shipArray)
         {

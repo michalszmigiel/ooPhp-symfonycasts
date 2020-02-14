@@ -1,5 +1,9 @@
 <?php
 
+namespace Service;
+
+use Model\AbstractShip;
+use Model\BattleResult;
 
 class BattleManager
 {
@@ -74,6 +78,15 @@ class BattleManager
 
         return new BattleResult($usedJediPowers, $losingShip, $winningShip);
 
+    }
+
+    public static function getAllBattleTypesWithDescription()
+    {
+        return [
+            self::TYPE_NORMAL => 'Normal',
+            self::TYPE_NO_JEDI => 'No Jedi',
+            self::TYPE_ONLY_JEDI => 'Only Jedi'
+        ];
     }
 
     private function didJediDestroyShipUsingTheForce(AbstractShip $ship)
